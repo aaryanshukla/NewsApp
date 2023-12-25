@@ -8,9 +8,24 @@ const port = process.env.PORT || 3000;
 // Serve static files from the 'public' folder
 app.use(express.static('public'));
 
-const conservativeSources = 'fox-news,breitbart-news,the-wall-street-journal';
-const liberalSources = 'cnn,msnbc,the-huffington-post';
-
+const conservativeSources = [
+    'fox-news',
+    'breitbart-news',
+    'the-wall-street-journal',
+    'national-review',
+    'the-american-conservative',
+    // Add more conservative sources as identified
+  ].join(',');
+  
+  const liberalSources = [
+    'cnn',
+    'msnbc',
+    'the-huffington-post',
+    'the-washington-post',
+    'the-new-york-times',
+    // Add more liberal sources as identified
+  ].join(',');
+  
 app.get('/news', async (req, res) => {
   const { bias, ...otherParams } = req.query;
   let sources = '';
@@ -22,7 +37,7 @@ app.get('/news', async (req, res) => {
   }
 
   // Construct the API URL with all the query parameters
-  let apiUrl = `https://newsapi.org/v2/top-headlines?apiKey=${process.env.NEWS_API_KEY}`;
+  let apiUrl = `https://newsapi.org/v2/everything?apiKey=${process.env.NEWS_API_KEY}`;
   apiUrl += sources ? `&sources=${sources}` : '';
 
   // Add other query parameters

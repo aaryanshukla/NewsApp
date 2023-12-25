@@ -17,27 +17,21 @@ function fetchNews(query = '') {
 }
 
 
+// This would remain the same, simply update the displayNews function to output card-style layout.
 function displayNews(articles) {
     const newsContainer = document.getElementById('news-container');
-    newsContainer.innerHTML = '';
-
-    if (articles.length === 0) {
-        newsContainer.innerHTML = '<p>No articles found.</p>';
-        return;
-      }
-
-    articles.forEach(article => {
-        const div = document.createElement('div');
-        div.className = 'news-item';
-        div.innerHTML = `
-            <h2>${article.title}</h2>
-            <p>${article.description}</p>
-            <a href="${article.url}" target="_blank">Read more</a>
-        `;
-        newsContainer.appendChild(div);
-    });
-}
-
+    newsContainer.innerHTML = articles.map(article => `
+      <div class="news-item">
+        <img src="${article.urlToImage}" alt="${article.title}">
+        <div class="news-item-content">
+          <h2 class="news-item-title">${article.title}</h2>
+          <p class="news-item-description">${article.description}</p>
+          <a href="${article.url}" target="_blank">Read more</a>
+        </div>
+      </div>
+    `).join('');
+  }
+  
 document.getElementById('search-form').addEventListener('submit', function(event) {
     event.preventDefault();
     fetchNews();
