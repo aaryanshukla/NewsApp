@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News Aggregator</title>
     <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <h1>Personalized News Aggregator</h1>
-    ''
-    <!-- Add inside the <body> tag -->
-    <form id="search-form">
-      <input type="text" id="search-query" placeholder="Search news..." />
-      <input type="date" id="search-from" placeholder="From date" />
-      <input type="date" id="search-to" placeholder="To date" />
-      <select id="search-language">
-        <option value="">Language</option>
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <!-- Add more languages as needed -->
-      </select>
-      <select id="search-sortby">
-        <option value="">Sort by</option>
-        <option value="publishedAt">Published At</option>
-        <option value="relevancy">Relevancy</option>
-        <option value="popularity">Popularity</option>
-      </select>
-      <select id="search-bias">
-        <option value="">Select Bias (optional)</option>
-        <option value="conservative">Conservative</option>
-        <option value="liberal">Liberal</option>
-      </select>
-      
-      <button type="submit">Search</button>
-    </form>
+</head>
+<body>
+    <header>
+        <h1>Personalized News Aggregator</h1>
+    </header>
 
-    <div id="news-container"></div>
+    <section class="breaking-news">
+        <h2>Breaking News</h2>
+        <div id="breaking-news-container" class="news-container">
+            <!-- Breaking news items will be dynamically injected here -->
+        </div>
+    </section>
+
+    <section class="top-stories">
+        <h2>Top Stories</h2>
+        <div id="top-stories-container" class="news-container">
+            <!-- Top stories will be dynamically injected here -->
+        </div>
+    </section>
+
+    <div class="search-area">
+        <form id="search-form" class="search-form">
+            <input type="text" id="search-query" placeholder="Search news..." />
+            <input type="date" id="search-from" placeholder="From date" />
+            <input type="date" id="search-to" placeholder="To date" />
+            <select id="search-language">
+                <option value="">Language</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <!-- Add more languages as needed -->
+            </select>
+            <select id="search-sortby">
+                <option value="">Sort by</option>
+                <option value="publishedAt">Published At</option>
+                <option value="relevancy">Relevancy</option>
+                <option value="popularity">Popularity</option>
+            </select>
+            <select id="search-bias">
+                <option value="">Select Bias (optional)</option>
+                <option value="conservative">Conservative</option>
+                <option value="liberal">Liberal</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <main id="news-container" class="news-container">
+        <!-- Other news articles will be injected here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Personalized News Aggregator. All rights reserved.</p>
+    </footer>
+
     <script src="/js/script.js"></script>
-  </body>
+</body>
 </html>

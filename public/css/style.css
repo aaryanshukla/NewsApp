@@ -1,134 +1,151 @@
 /* Reset default browser styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set the font for the whole page */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Style the header */
+header {
+  background-color: #003366; /* Dark blue, similar to Fox News header */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Breaking News Section */
+.breaking-news {
+  background-color: #ff0000; /* Red for breaking news */
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px; /* Space after the breaking news section */
+}
+
+/* Style the search form */
+.search-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.search-form input[type='text'],
+.search-form input[type='date'],
+.search-form select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 200px; /* Adjust width as needed */
+}
+
+.search-form button {
+  padding: 10px 20px;
+  background-color: #28A745; /* Green, consider changing to match Fox News style */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Style the news container */
+.news-container {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
+  grid-gap: 30px; /* Space between grid items */
+}
+
+/* Style individual news items */
+.news-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures content fits within the rounded corners */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.news-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.news-item img {
+  width: 100%;
+  height: 200px; /* Set a fixed height for images */
+  object-fit: cover; /* Ensures images cover the area without stretching */
+}
+
+.news-item-content {
+  padding: 20px;
+}
+
+.news-item-title {
+  font-size: 18px;
+  color: #007BFF; /* Blue, consider changing to match Fox News title color */
+  margin-bottom: 10px;
+}
+
+.news-item-description {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.news-item a {
+  display: inline-block;
+  background: #007BFF; /* Blue, consider changing to match Fox News link color */
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.news-item a:hover {
+  background: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer styles */
+footer {
+  background-color: #003366; /* Dark blue, similar to Fox News footer */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Responsive grid for smaller screens */
+@media (max-width: 1200px) {
+  .news-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Set the font for the whole page */
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .news-container {
+    grid-template-columns: 1fr;
   }
-  
-  /* Style the header */
-  h1 {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-bottom: 40px;
+
+  .search-form input[type='text'],
+  .search-form input[type='date'],
+  .search-form select,
+  .search-form button {
+    width: 100%; /* Full width on small screens */
   }
-  
-  /* Style the search form */
-  #search-form {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 40px;
-  }
-  
-  #search-form input[type='text'],
-  #search-form input[type='date'],
-  #search-form select {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 200px; /* Adjust width as needed */
-  }
-  
-  #search-form button {
-    padding: 10px 20px;
-    background-color: #28A745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #search-form button:hover {
-    background-color: #218838;
-  }
-  
-  /* Style the news container */
-  #news-container {
-    width: 80%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
-    grid-gap: 30px; /* Space between grid items */
-  }
-  
-  /* Style individual news items */
-  .news-item {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ensures content fits within the rounded corners */
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  
-  .news-item:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .news-item img {
-    width: 100%;
-    height: 200px; /* Set a fixed height for images */
-    object-fit: cover; /* Ensures images cover the area without stretching */
-  }
-  
-  .news-item-content {
-    padding: 20px;
-  }
-  
-  .news-item-title {
-    font-size: 18px;
-    color: #007BFF;
-    margin-bottom: 10px;
-  }
-  
-  .news-item-description {
-    font-size: 15px;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .news-item a {
-    display: inline-block;
-    background: #007BFF;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-  
-  .news-item a:hover {
-    background: #0056b3;
-  }
-  
-  /* Responsive grid for smaller screens */
-  @media (max-width: 1200px) {
-    #news-container {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    #news-container {
-      grid-template-columns: 1fr;
-    }
-  
-    #search-form input[type='text'],
-    #search-form input[type='date'],
-    #search-form select,
-    #search-form button {
-      width: 100%; /* Full width on small screens */
-    }
-  }
-  
+}
